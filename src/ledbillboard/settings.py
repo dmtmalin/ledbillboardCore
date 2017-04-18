@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import ledbillboard
 
+from django.utils.translation import ugettext_lazy as _
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -32,6 +34,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli.dashboard',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,8 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ledbillboard',
-    'ledbillboard.profileauth',
+    'ledbillboard.account',
     'ledbillboard.playlist',
+    'ledbillboard.board',
     'fancy_cronfield',
 ]
 
@@ -137,4 +142,18 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '__static'
 
 # Django authentication
-AUTH_USER_MODEL = 'profileauth.user'
+AUTH_USER_MODEL = 'account.user'
+
+# Localization
+LOCALE_PATHS = [
+    'locale'
+]
+
+LANGUAGES = [
+    ('en', _('English')),
+    ('ru', _('Russian')),
+]
+
+# Grapelli http://django-grappelli.readthedocs.org/en/latest/
+GRAPPELLI_INDEX_DASHBOARD = 'ledbillboard.dashboard.CustomIndexDashboard'
+GRAPPELLI_ADMIN_TITLE = 'Ledbillboard'

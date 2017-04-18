@@ -8,6 +8,7 @@ sys.path.insert(0, 'src')
 requires = [
     'Django==1.11',
     'django-fancy-cronfield==0.2.0',
+    'django-grappelli==2.9.1',
     'psycopg2==2.7.1',
     'python-crontab==1.9.3',
     'python-dateutil==2.6.0',

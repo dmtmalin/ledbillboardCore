@@ -1,15 +1,16 @@
+# -*- coding: utf-8 -*-
 from django import forms
 from fancy_cronfield.widgets import CronWidget
-from ledbillboard.playlist.models import Schedule
+from ledbillboard.playlist.models import Playlist
 
 
-class ScheduleForm(forms.ModelForm):
+class PlaylistForm(forms.ModelForm):
     class Meta:
-        model = Schedule
-        fields = ('playlist', 'timing')
+        model = Playlist
+        fields = ('media', 'board', 'timing')
         widgets = {
             'timing': CronWidget(
                 attrs={'class': 'special'},
-                options={'use_gentle_select': False}
+                options={'use_gentle_select': True}
             ),
         }
