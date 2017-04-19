@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'ledbillboard.account',
     'ledbillboard.playlist',
     'ledbillboard.board',
-    'fancy_cronfield',
+    'ledbillboard.mediacontent',
+    'ledbillboard.company',
+    'ledbillboard.references',
 ]
 
 MIDDLEWARE = [

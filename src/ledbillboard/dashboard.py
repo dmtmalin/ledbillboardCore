@@ -22,10 +22,11 @@ class CustomIndexDashboard(Dashboard):
         site_name = get_admin_site_name(context)
 
         self.children.append(modules.ModelList(
-            title=_('Users'),
+            title=_('Users and companies'),
             column=1,
             models=(
                 'ledbillboard.account.*',
+                'ledbillboard.company.*'
             ),
         ))
 
@@ -38,10 +39,19 @@ class CustomIndexDashboard(Dashboard):
         ))
 
         self.children.append(modules.ModelList(
-            title=_('Playlist and media items'),
+            title=_('Content'),
             column=1,
             models=(
                 'ledbillboard.playlist.*',
+                'ledbillboard.mediacontent.*'
+            ),
+        ))
+
+        self.children.append(modules.ModelList(
+            title=_('References'),
+            column=1,
+            models=(
+                'ledbillboard.references.*',
             ),
         ))
         

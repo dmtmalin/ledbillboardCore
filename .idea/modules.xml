@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ledbillboard.iml" filepath="$PROJECT_DIR$/.idea/ledbillboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ledbillboardCore.iml" filepath="$PROJECT_DIR$/.idea/ledbillboardCore.iml" />
     </modules>
   </component>
 </project>

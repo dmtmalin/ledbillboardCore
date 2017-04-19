@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 class Board(models.Model):
-    user = models.ForeignKey('account.User', verbose_name=_('User'))
+    company = models.ForeignKey('company.Company', verbose_name=_('Company'))
     name = models.CharField(_('Name'), max_length=255)
     slug = models.SlugField(_('Slug'), max_length=255)
     lat = models.FloatField(_('Latitude'), blank=True, null=True)
