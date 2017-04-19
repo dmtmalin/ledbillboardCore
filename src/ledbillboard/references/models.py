@@ -7,19 +7,19 @@ from django.utils.translation import ugettext_lazy as _
 
 def validate_cron(value):
     if value.strip() != value:
-        raise ValidationError(_('Leading nor trailing spaces are allowed'))
+        raise ValidationError(_('Leading nor trailing spaces are allowed.'))
     columns = value.split()
     if columns != value.split(' '):
-        raise ValidationError(_('Use only a single space as a column separator'))
+        raise ValidationError(_('Use only a single space as a column separator.'))
 
     if len(columns) != 5:
-        raise ValidationError(_('Entry has to consist of exactly 5 columns'))
+        raise ValidationError(_('Entry has to consist of exactly 5 columns.'))
 
     pattern = r'^(\*|\d+(-\d+)?(,\d+(-\d+)?)*)(/\d+)?$'
     p = re.compile(pattern)
     for i, c in enumerate(columns):
         if not p.match(c):
-            message = _('Incorrect value %(value)s in column %(column)d') % {
+            message = _('Incorrect value %(value)s in column %(column)d.') % {
                 'value': c,
                 'column': i+1
             }
@@ -28,7 +28,7 @@ def validate_cron(value):
 
 class Schedule(models.Model):
     cron = models.CharField(_('Cron command'), max_length=120, validators=[validate_cron, ],
-                            help_text=_("'0 * * * *' that run in every hour"))
+                            help_text=_('0 * * * * that run in every hour.'))
     description = models.CharField(_('Description'), max_length=255)
 
     def __str__(self):

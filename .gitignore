@@ -138,17 +138,3 @@ ENV/
 
 # Rope project settings
 .ropeproject
-.idea/dictionaries/
-.idea/inspectionProfiles/
-.idea/vcs.xml
-.idea/workspace.xml
-src/ledbillboard.egg-info/
-src/ledbillboard/__pycache__/
-src/ledbillboard/account/__pycache__/
-src/ledbillboard/account/migrations/__pycache__/
-src/ledbillboard/board/__pycache__/
-src/ledbillboard/board/migrations/__pycache__/
-src/ledbillboard/locale/
-src/ledbillboard/playlist/__pycache__/
-src/ledbillboard/playlist/migrations/__pycache__/
-src/ledbillboard/templates/
