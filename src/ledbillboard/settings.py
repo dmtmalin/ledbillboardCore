@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
     'ledbillboard',
     'ledbillboard.account',
     'ledbillboard.playlist',
@@ -57,8 +58,14 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.RemoteUserMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'django.contrib.auth.backends.RemoteUserBackend',
 ]
 
 ROOT_URLCONF = 'ledbillboard.urls'
@@ -160,8 +167,13 @@ LANGUAGES = [
 GRAPPELLI_INDEX_DASHBOARD = 'ledbillboard.dashboard.CustomIndexDashboard'
 GRAPPELLI_ADMIN_TITLE = 'Ledbillboard'
 
-#WebDav
+# WebDav
 DEFAULT_FILE_STORAGE = 'django_webdav_storage.storage.WebDavStorage'
 WEBDAV_URL = 'http://admin:admin@localhost:8135/'
 WEBDAV_PUBLIC_URL = 'http://localhost/'
 WEBDAV_LISTING_BACKEND = 'django_webdav_storage.listing.nginx_autoindex'
+
+# GraphQL
+GRAPHENE = {
+    'SCHEMA': 'ledbillboard.schema.schema'
+}
