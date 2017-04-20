@@ -159,3 +159,9 @@ LANGUAGES = [
 # Grapelli http://django-grappelli.readthedocs.org/en/latest/
 GRAPPELLI_INDEX_DASHBOARD = 'ledbillboard.dashboard.CustomIndexDashboard'
 GRAPPELLI_ADMIN_TITLE = 'Ledbillboard'
+
+#WebDav
+DEFAULT_FILE_STORAGE = 'django_webdav_storage.storage.WebDavStorage'
+WEBDAV_URL = 'http://admin:admin@localhost:8135/'
+WEBDAV_PUBLIC_URL = 'http://localhost/'
+WEBDAV_LISTING_BACKEND = 'django_webdav_storage.listing.nginx_autoindex'

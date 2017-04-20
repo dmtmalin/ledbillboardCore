@@ -12,6 +12,7 @@ requires = [
     'python-dateutil==2.6.0',
     'pytz==2017.2',
     'six==1.10.0',
+    'django-webdav-storage==0.6.1',
 ]
 
 setup(
