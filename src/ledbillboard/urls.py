@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^graphql', GraphQLView.as_view(graphiql=True)),
+    url(r'^account/', include('ledbillboard.account.urls', namespace='account')),
 ]
