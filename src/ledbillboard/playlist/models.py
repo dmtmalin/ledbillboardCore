@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class Playlist(models.Model):
-    schedule = models.ForeignKey('references.Schedule', verbose_name=_('Schedule'))
+    schedule = models.ForeignKey('references.Schedule', verbose_name=_('Schedule'), related_name='playlist')
     board = models.ForeignKey('board.Board', verbose_name=_('Billboard'))
     media = models.ManyToManyField('mediacontent.Media', verbose_name=_('Media items'), blank=True)
 

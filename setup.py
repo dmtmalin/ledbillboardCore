@@ -10,9 +10,8 @@ requires = [
     'django-grappelli==2.9.1',
     'django-webdav-storage==0.6.1',
     'graphene-django==1.3',
+    'django-filter==1.0.2',
     'psycopg2==2.7.1',
-    'pytz==2017.2',
-    'six==1.10.0',
 ]
 
 setup(
