@@ -27,7 +27,7 @@ class PlaylistType(DjangoObjectType):
     media = graphene.List(MediaType)
 
     def resolve_media(self: Playlist, args, context, info):
-        return Media.objects.filter(playlist=self)
+        return Media.objects.filter(playlist=self, is_approve=True)
 
     class Meta:
         model = Playlist
@@ -39,3 +39,6 @@ class PlaylistType(DjangoObjectType):
 
 class Query(graphene.AbstractType):
     all_playlist = DjangoFilterConnectionField(PlaylistType)
+
+    def resolve_all_playlist(self, args, context, info):
+        return Playlist.objects.all() if context.user.is_authenticated() else Playlist.objects.none()
