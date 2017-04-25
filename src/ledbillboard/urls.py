@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from graphene_django.views import GraphQLView
+from ledbillboard.views import PrivateGraphQLView
 
 urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^graphql', GraphQLView.as_view(graphiql=True)),
+    url(r'^graphql', PrivateGraphQLView.as_view(graphiql=True)),
     url(r'^account/', include('ledbillboard.account.urls', namespace='account')),
 ]

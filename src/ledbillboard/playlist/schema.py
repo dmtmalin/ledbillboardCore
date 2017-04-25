@@ -39,6 +39,3 @@ class PlaylistType(DjangoObjectType):
 
 class Query(graphene.AbstractType):
     all_playlist = DjangoFilterConnectionField(PlaylistType)
-
-    def resolve_all_playlist(self, args, context, info):
-        return Playlist.objects.all() if context.user.is_authenticated() else Playlist.objects.none()

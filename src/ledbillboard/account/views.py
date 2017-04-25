@@ -1,6 +1,6 @@
 from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
-from django.http.response import HttpResponse
+from django.http.response import HttpResponseBadRequest, HttpResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import View
@@ -15,4 +15,4 @@ class AjaxLoginView(View):
             login(request, user)
             return HttpResponse(status=200)
         else:
-            return HttpResponse(status=401)
+            return HttpResponseBadRequest()
