@@ -17,3 +17,4 @@ class Board(models.Model):
     class Meta:
         verbose_name = _('Billboard')
         verbose_name_plural = _('Billboards')
+        unique_together = ('name', 'slug', )
