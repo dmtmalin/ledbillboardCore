@@ -101,6 +101,8 @@ DATABASES = {
         'NAME': 'ledbillboard',
         'USER': 'postgres',
         'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -171,3 +173,9 @@ WEBDAV_LISTING_BACKEND = 'django_webdav_storage.listing.nginx_autoindex'
 GRAPHENE = {
     'SCHEMA': 'ledbillboard.schema.schema'
 }
+
+# Override settings on config/settings.py
+SETTINGS_OVERRIDES = os.environ.get('SETTINGS_OVERRIDES', None)
+if SETTINGS_OVERRIDES is not None and os.path.exists(SETTINGS_OVERRIDES):
+    settings = open(SETTINGS_OVERRIDES).read()
+    exec(settings)
