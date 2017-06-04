@@ -6,7 +6,7 @@ MAINTAINER Dmtmalin <dmt.malin@gmail.com>
 ENV PYTHONUNBUFFERED 1
 # Install some necessary things.
 RUN apt-get update
-RUN apt-get install -y nginx
+RUN apt-get install -y nginx gettext
 # Install uWSGI
 RUN pip install uwsgi==2.0.15
 # Set the working directory to /app
@@ -18,8 +18,10 @@ RUN python setup.py install
 # Collect static files
 ENV SETTINGS_OVERRIDES /app/config/settings.py
 RUN ledbillboard collectstatic --noinput
+# Compilile i18n messages
+RUN ledbillboard compilemessages
 # Configure nginx
-ADD nginx/docker.prod.conf /etc/nginx/sites-enabled/docker.prod.conf
+ADD nginx/unix.prod.conf /etc/nginx/sites-enabled/unix.prod.conf
 # Make port 8000 available to the world outside this container
 EXPOSE 8000
 # Entrypoint script
