@@ -151,7 +151,7 @@ AUTH_USER_MODEL = 'account.user'
 
 # Localization
 LOCALE_PATHS = [
-    'locale'
+    os.path.join(BASE_DIR, 'ledbillboard/locale')
 ]
 
 LANGUAGES = [
