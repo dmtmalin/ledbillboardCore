@@ -24,7 +24,9 @@ RUN ledbillboard compilemessages
 EXPOSE 8000
 # Entrypoint script
 ADD docker/docker-entrypoint.sh /
+RUN chmod 0755 /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 # Run script
 ADD docker/run.sh /
+RUN chmod 0755 /run.sh
 CMD ["/run.sh"]
