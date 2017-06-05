@@ -16,3 +16,7 @@ docker ps
 docker exec -i -t <CONTAINER ID > /bin/bash
 ledbillboard createsuperuser
 ```
+Копирование статики
+```
+docker cp <CONTAINER ID >:/var/www/board/static /var/www/board/static
+```
