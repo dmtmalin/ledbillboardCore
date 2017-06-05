@@ -4,7 +4,5 @@ echo "MIGRATE DATABASE"
 ledbillboard migrate
 
 # Стартуем сервер
-echo "START SERVER"
-service nginx start
-service nginx status
+echo "START uWSGI"
 uwsgi --ini /app/tools/uwsgi.ini --die-on-term
