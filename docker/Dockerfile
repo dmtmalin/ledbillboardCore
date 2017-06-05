@@ -16,15 +16,12 @@ ADD . /app
 # Install application and static components
 RUN python setup.py install
 # Collect static files
-ENV SETTINGS_OVERRIDES /app/config/settings.py
-RUN ledbillboard collectstatic --noinput
+ADD docker/make_static.sh /
+RUN chmod +x /make_static.sh
 # Compilile i18n messages
 RUN ledbillboard compilemessages
 # Make port 8000 available to the world outside this container
 EXPOSE 8000
-# Entrypoint script
-ADD docker/docker-entrypoint.sh /
-ENTRYPOINT ["/docker-entrypoint.sh"]
 # Run script
 ADD docker/run.sh /
 CMD ["/run.sh"]
